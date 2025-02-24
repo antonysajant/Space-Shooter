@@ -16,11 +16,16 @@ public class Player : MonoBehaviour
         verticalAxis = Input.GetAxis("Vertical");
 
 
-        transform.Translate(new Vector3(1 * horizontalAxis, 1 * verticalAxis, 0) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(horizontalAxis, verticalAxis, 0) * speed * Time.deltaTime);
 
         if (transform.position.y <= -4.03f)
             transform.position = new Vector3(transform.position.x, -4.03f, transform.position.z);
-        else if (transform.position.y >= 0f)
-            transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        else if (transform.position.y >= 0.5f)
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+
+        if(transform.position.x <= -9.35f)
+            transform.position=new Vector3(9.35f,transform.position.y,transform.position.z);
+        else if(transform.position.x >= 9.35f)
+            transform.position = new Vector3(-9.35f, transform.position.y, transform.position.z);
     }
 }
