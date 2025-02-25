@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         health--;
 
-        if (health < 0)
+        if (health < 1)
             Destroy(this.gameObject);
     }
 }
