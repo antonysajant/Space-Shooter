@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 977143489650077770}
   - component: {fileID: 4918730286510787551}
   - component: {fileID: 6919457827365296529}
-  - component: {fileID: 8957291015884848221}
+  - component: {fileID: 1247311685421077944}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8957291015884848221
+--- !u!114 &1247311685421077944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,9 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5663134723043530631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a894392e31c91d48bb1465aee6bc791, type: 3}
+  m_Script: {fileID: 11500000, guid: d0cc7951814e7484aacab557a7ecf59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  bullet: {fileID: 3009849046078520000, guid: 8dcafe03b6f4f80459850e3346dfa118, type: 3}
-  fireRate: 1
+  speed: 7.5
