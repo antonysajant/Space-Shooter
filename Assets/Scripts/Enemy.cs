@@ -17,5 +17,20 @@ public class Enemy : MonoBehaviour
             transform.position = new Vector3(Random.Range(-9.5f, 9.5f), 7.5f, transform.position.z);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            FindAnyObjectByType<Player>().damage();
+            Destroy(gameObject);
+        }
+        
+        if (other.tag == "Bullet")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
 
 }

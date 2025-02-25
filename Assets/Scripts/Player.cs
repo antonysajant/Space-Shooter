@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private float horizontalAxis;
     private float verticalAxis;
     private float nextFire;
+    [SerializeField]private int health = 3;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float fireRate = 1f;
@@ -51,5 +52,13 @@ public class Player : MonoBehaviour
             Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
+    }
+
+    public void damage()
+    {
+        health--;
+
+        if (health < 0)
+            Destroy(this.gameObject);
     }
 }
