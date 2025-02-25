@@ -5,12 +5,15 @@ public class Player : MonoBehaviour
 {
     private float horizontalAxis;
     private float verticalAxis;
+    private float nextFire;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private float fireRate = 1f;
 
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        nextFire = fireRate;
     }
 
     void Update()
@@ -21,7 +24,9 @@ public class Player : MonoBehaviour
         movement();
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             fire();
+        }
     }
 
     void movement()
@@ -41,6 +46,10 @@ public class Player : MonoBehaviour
 
     void fire()
     {
-        Instantiate(bullet,new Vector3(transform.position.x,transform.position.y + 0.75f,transform.position.z),Quaternion.identity);
+        if (Time.time >= nextFire)
+        {
+            Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), Quaternion.identity);
+            nextFire = Time.time + fireRate;
+        }
     }
 }
