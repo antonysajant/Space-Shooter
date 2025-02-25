@@ -13,13 +13,9 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        if (transform.position.y <= -11f)
-            transform.position = new Vector3(transform.position.x, 11f, transform.position.z);
+        if (transform.position.y <= -5.5f)
+            transform.position = new Vector3(Random.Range(-9.5f, 9.5f), 7.5f, transform.position.z);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "Bullet")
-            Destroy(gameObject);
-    }
+
 }
