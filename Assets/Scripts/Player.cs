@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     private float horizontalAxis;
     private float verticalAxis;
     private float nextFire;
-    [SerializeField]private int health = 3;
+    [SerializeField]private int hp = 3;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float fireRate = 1f;
@@ -34,12 +34,12 @@ public class Player : MonoBehaviour
     {
         transform.Translate(new Vector3(horizontalAxis, verticalAxis, 0) * speed * Time.deltaTime);
 
-        if (transform.position.y <= -4.03f)
+        if (transform.position.y <= -4.03f)     //restricts y axis movement
             transform.position = new Vector3(transform.position.x, -4.03f, transform.position.z);
         else if (transform.position.y >= 0.5f)
             transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
 
-        if (transform.position.x <= -9.35f)
+        if (transform.position.x <= -9.35f)     //warps the player about the x axis boundaries
             transform.position = new Vector3(9.35f, transform.position.y, transform.position.z);
         else if (transform.position.x >= 9.35f)
             transform.position = new Vector3(-9.35f, transform.position.y, transform.position.z);
@@ -47,18 +47,18 @@ public class Player : MonoBehaviour
 
     void fire()
     {
-        if (Time.time >= nextFire)
+        if (Time.time >= nextFire)  //fires bullet according to fireRate
         {
             Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
     }
 
-    public void damage()
+    public void damage()    //deducts 1hp
     {
-        health--;
+        hp--;
 
-        if (health < 1)
+        if (hp < 1)
             Destroy(this.gameObject);
     }
 }

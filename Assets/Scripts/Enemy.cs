@@ -16,8 +16,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
-
-            if(player!=null)
+            if(player!=null)    //null checking for the presence of Player script
             {
                 player.damage();
             }
