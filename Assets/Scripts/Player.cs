@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private float horizontalAxis;
     private float verticalAxis;
     private float nextFire;
+    private SpawnManager spawnManager;
     [SerializeField]private int hp = 3;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject bullet;
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, 0);
         nextFire = fireRate;
+        spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+
+        if (spawnManager == null)
+            Debug.LogError("SpawnManager is null");
     }
 
     void Update()
@@ -59,6 +64,9 @@ public class Player : MonoBehaviour
         hp--;
 
         if (hp < 1)
+        {
+            spawnManager.stopSpawning();
             Destroy(this.gameObject);
+        }
     }
 }
