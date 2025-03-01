@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         nextFire = fireRate;
         spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
 
-        if (spawnManager == null)
+        if (spawnManager == null)   //null checking for Spawn Manager script
             Debug.LogError("SpawnManager is null");
     }
 
