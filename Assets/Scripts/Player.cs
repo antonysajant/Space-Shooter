@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     {
         if (Time.time >= nextFire)  //fires bullet according to fireRate
         {
-            Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), Quaternion.identity);
+            Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.95f, transform.position.z), Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
     }
